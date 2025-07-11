@@ -1,0 +1,21 @@
+{
+  "name": "x",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "bun run docker:up && vitest run && bun run docker:down",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "dependencies": {
+    "permissionless": "^0.2.50",
+    "viem": "^2.9.17"
+  },
+  "devDependencies": {
+    "vitest": "^1.5.2",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
