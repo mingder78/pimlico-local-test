@@ -5,14 +5,19 @@ import { http } from "viem";
 import {
   createBundlerClient,
   entryPoint06Address,
-  entryPoint07Address
+  entryPoint07Address,
+  entryPoint08Address
 } from "viem/account-abstraction";
  
 describe("Test basic bundler functions", () => {
+
   beforeAll(async () => { 
+    console.log('Starting bundler...');
     await ensureBundlerIsReady(); 
+    console.log('end 1 bundler...');
     await ensurePaymasterIsReady(); 
-  }); 
+    console.log('end 2 bundler...');
+  }, 50000); // Increase timeout to 50 seconds
  
   test("Can get chainId", async () => {
     const bundlerClient = createBundlerClient({
@@ -36,6 +41,7 @@ describe("Test basic bundler functions", () => {
     expect(supportedEntryPoints).toEqual([
       entryPoint06Address,
       entryPoint07Address,
+      entryPoint08Address,
     ]);
   });
 });

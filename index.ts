@@ -22,6 +22,11 @@ const bundlerClient = createBundlerClient({
   //transport: http(BUNDLER_URL)
   transport: http("http://localhost:4337") 
 });
+
+    const supportedEntryPoints = await bundlerClient.getSupportedEntryPoints();
+console.log(supportedEntryPoints)
+const id = await bundlerClient.getChainId();
+console.log(id)
  
 const pimlicoClient = createPimlicoClient({
     transport: http("http://localhost:3000"),  
@@ -32,7 +37,9 @@ const pimlicoClient = createPimlicoClient({
 })
 
 const owner = privateKeyToAccount(PRIVATE_KEY)
+console.log(owner)
 
+/*
 const account = await toSimpleSmartAccount({
   client: publicClient,
   owner,                       // single‑sig owner
@@ -70,3 +77,4 @@ const hash = await bundlerClient.sendUserOperation({
 }) // → submits to the bundler :contentReference[oaicite:0]{index=0}
 
 console.log('UserOp hash →', hash)
+*/
